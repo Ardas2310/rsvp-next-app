@@ -9,6 +9,8 @@ import { Calendar } from '@/components/ui/calendar';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { strings } from '@/app/utils/strings';
 import { useToast } from '@/hooks/use-toast';
+import { ReactFormState } from 'react-dom/client';
+import submitRSVP from '../actions/submitRSVP';
 
 const RSVPForm = () => {
 	const [name, setName] = React.useState('');
@@ -19,8 +21,51 @@ const RSVPForm = () => {
 	const [isLoading, setIsLoading] = React.useState(false);
 	const { toast } = useToast();
 
-	const handleSubmit = () => {
-		console.log();
+	const handleSubmit = async (e: React.FormEvent) => {
+		e.preventDefault();
+		if (!name) {
+			setErrors({ name: 'Name is required' });
+			return;
+		}
+		if (!email) {
+			setErrors({ email: 'Email is required' });
+			return;
+		}
+
+		const formData = new FormData();
+		formData.append('name', name);
+		formData.append('email', email);
+		formData.append('accompany', accompany || '0');
+		formData.append('attendance', attendance);
+
+		console.log(formData, 'formData');
+
+		setIsLoading(true);
+
+		const response = await submitRSVP(formData);
+
+		if (response.success) {
+			toast({
+				title: 'RSVP sent successfully',
+				description: strings.thankYouMessage,
+			});
+			//Reseting
+			setName('');
+			setEmail('');
+			setAccompany(null);
+			setAttendance('yes');
+			setErrors({});
+		} else {
+			toast({
+				title: 'Failed to submit RSVP',
+				description: response.message,
+				variant: 'destructive',
+			});
+
+			//TODO:Check is email already submitted
+		}
+
+		setIsLoading(false);
 	};
 
 	const openGoogleMaps = () => {
@@ -118,3 +163,4 @@ const RSVPForm = () => {
 };
 
 export default RSVPForm;
+
