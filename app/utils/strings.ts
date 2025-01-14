@@ -1,10 +1,10 @@
 export const strings = {
-    title: "RSVP",
+    title: "Luna Veil @Aigli",
     description:
-        "We're excited to celebrate our special day with you! ",
-    eventDate: "2025-04-25", // YYYY-MM-DD format
+        "Come and see Luna Veil perform live at Aigli Geni Hamam!",
+    eventDate: "2025-02-21", // YYYY-MM-DD format
     eventDateLabel: "Event Date",
-    eventLocation: "Thessaloniki Airport",
+    eventLocation: "Aigli Geni Hamam",
     eventLocationLabel: "Event Location",
     nameLabel: "Full Name",
     emailLabel: "Email Address",

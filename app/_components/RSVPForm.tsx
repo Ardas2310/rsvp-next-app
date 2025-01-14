@@ -87,15 +87,15 @@ const RSVPForm = () => {
 			<h1 className="text-2xl font-bold mb-4 text-center border rounded-md border-black/80 bg-white/50 p-2 text-neutral-900">
 				{strings.title}
 			</h1>
-			<p className="mb-6 text-neutral-900 font-medium">{strings.description}</p>
+			<p className="mb-6 text-neutral-900 text-center font-medium">{strings.description}</p>
 			<div className="mb-4">
-				<Label className="text-neutral-900 font-medium">
+				<Label className="text-neutral-900 font-bold">
 					{strings.eventDateLabel}
 				</Label>
 				<Calendar
 					mode="single"
 					selected={new Date(strings.eventDate)}
-					className="border flex flex-col items-center rounded-md border-black/80 bg-white/70 text-neutral-950"
+					className="border flex flex-col items-center rounded-md border-black/20 bg-white/70 text-neutral-950"
 					fromDate={new Date(strings.eventDate)}
 					toDate={new Date(strings.eventDate)}
 					defaultMonth={new Date(strings.eventDate)}
@@ -106,7 +106,7 @@ const RSVPForm = () => {
 					<Button
 						type="button"
 						variant="outline"
-						className="w-full flex items-center justify-center gap-2 border-black/80 bg-white/70 text-neutral-900 hover:bg-primary hover:text-white transition-all duration-300"
+						className="w-full flex items-center justify-center gap-2 border-black/20 bg-white/70 text-neutral-900 hover:bg-primary hover:text-white transition-all duration-300"
 						onClick={openGoogleMaps}
 					>
 						<MapPin className="h-4 w-4" />
@@ -200,7 +200,7 @@ const RSVPForm = () => {
 					type="submit"
 					className="w-full bg-primary/90 hover:bg-primary text-white"
 				>
-					{isLoading ? 'Sending...' : strings.submitButton}
+					<span className='font-bold'>{isLoading ? 'Sending...' : strings.submitButton}</span>
 				</Button>
 			</form>
 		</div>
