@@ -27,7 +27,9 @@ export default async function RSVPsPage() {
 					</Link>
 					{/* Log Out */}
 					<form action={signOut}>
-						<Button variant={'outline'}>Sign Out</Button>
+						<Button variant={'outline'} className="bg-white/70">
+							Sign Out
+						</Button>
 					</form>
 				</div>
 			</div>

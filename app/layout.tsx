@@ -30,6 +30,7 @@ export default function RootLayout({
 				className={`
           ${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
+				<div className="fixed top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[linear-gradient(354.0938588862295deg,_#f3f6de_13%,_#dd8d72_94%)]"></div>
 				{children}
 				<Toaster />
 			</body>

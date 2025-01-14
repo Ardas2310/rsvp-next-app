@@ -32,17 +32,17 @@ const RSVPtable = ({ data }: RSVPtableProps) => {
 
 	return (
 		<div>
-			<div className="flex items-center py-4">
+			<div className="flex items-center py-4 ">
 				<Input
 					placeholder="Filter by name..."
 					value={filter}
 					onChange={(e) => setFilter(e.target.value)}
-					className="max-w-sm"
+					className="max-w-sm bg-white/70 "
 				/>
 			</div>
-			<div className="rounded-md border">
+			<div className="rounded-md border bg-white/70">
 				<Table>
-					<TableHeader>
+					<TableHeader className="bg-gray-50/10">
 						<TableRow>
 							<TableHead>Name</TableHead>
 							<TableHead>Email</TableHead>
@@ -53,7 +53,7 @@ const RSVPtable = ({ data }: RSVPtableProps) => {
 					<TableBody>
 						{filteredData.length > 0 ? (
 							filteredData.map((rsvp) => (
-								<TableRow key={rsvp.id}>
+								<TableRow key={rsvp.id} className="hover:bg-gray-50">
 									<TableCell>{rsvp.name}</TableCell>
 									<TableCell>{rsvp.email}</TableCell>
 									<TableCell>{rsvp.accompany || '/'}</TableCell>

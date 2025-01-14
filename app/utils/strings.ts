@@ -2,7 +2,7 @@ export const strings = {
     title: "RSVP",
     description:
         "We're excited to celebrate our special day with you! ",
-    eventDate: "2025-03-5", // YYYY-MM-DD format
+    eventDate: "2025-04-25", // YYYY-MM-DD format
     eventDateLabel: "Event Date",
     eventLocation: "Thessaloniki Airport",
     eventLocationLabel: "Event Location",
